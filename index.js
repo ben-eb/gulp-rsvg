@@ -4,7 +4,7 @@
 
 var gutil = require('gulp-util'),
     Rsvg  = require('rsvg').Rsvg,
-    map   = require('event-stream').map;
+    map   = require('map-stream');
 
 module.exports = function() {
     var format = 'png';
