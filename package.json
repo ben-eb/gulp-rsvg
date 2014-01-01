@@ -1,6 +1,6 @@
 {
   "name": "gulp-rsvg",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert SVG to PNG or PDF.",
   "license": "MIT",
   "homepage": "https://github.com/ben-eb/gulp-rsvg",
@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "gulp-util": "~2.2.0",
-    "rsvg" : "0.2.2",
+    "rsvg": "0.2.2",
     "map-stream": "0.0.4"
   },
   "devDependencies": {
