@@ -20,7 +20,8 @@ describe('gulp-rsvg', function() {
         });
 
         stream.write(new gutil.File({
-            contents: new Buffer(raw)
+            contents: new Buffer(raw),
+            path: 'test.svg'
         }));
     });
     it('should convert svg to pdf', function(cb) {
@@ -35,7 +36,8 @@ describe('gulp-rsvg', function() {
         });
 
         stream.write(new gutil.File({
-            contents: new Buffer(raw)
+            contents: new Buffer(raw),
+            path: 'test.svg'
         }));
     });
 });
