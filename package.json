@@ -23,7 +23,7 @@
   "dependencies": {
     "gulp-util": "~2.2.0",
     "rsvg": "0.2.2",
-    "map-stream": "0.0.4"
+    "map-stream": "~0.1.0"
   },
   "devDependencies": {
     "chai": "~1.8.1",
