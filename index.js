@@ -30,7 +30,7 @@ function gulprsvg() {
         format: 'png'
     };
     if (arguments.length > 0) {
-        options.format = arguments[0].format || format;
+        options.format = arguments[0].format || options.format;
         options.width = arguments[0].width || false;
         options.height = arguments[0].height || false;
     }
