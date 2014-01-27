@@ -19,13 +19,13 @@ var gulp = require('gulp');
 var convert = require('gulp-rsvg');
 
 gulp.task('png', function() {
-    gulp.src('logo.svg')
+    return gulp.src('logo.svg')
         .pipe(convert())
         .pipe(gulp.dest('./out'));
 });
 
 gulp.task('pdf', function() {
-    gulp.src('logo.svg')
+    return gulp.src('logo.svg')
         .pipe(convert({
             format: 'pdf'
         }))
@@ -33,7 +33,7 @@ gulp.task('pdf', function() {
 });
 ```
 
-## Options
+## API
 
 ### format
 Type: `String`
