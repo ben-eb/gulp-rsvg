@@ -14,7 +14,7 @@ Note that this plugin wraps [node-rsvg](https://github.com/walling/node-rsvg) an
 
 ## Example
 
-```
+```js
 var gulp = require('gulp');
 var convert = require('gulp-rsvg');
 
