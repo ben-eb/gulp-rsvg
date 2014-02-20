@@ -13,7 +13,7 @@ function rsvgTransform(options) {
     // Returns a callback that handles the buffered content
     return function(err, buffer, cb) {
         if (err) {
-            cb(gutil.PluginError(PLUGIN_NAME, err));
+            cb(new gutil.PluginError(PLUGIN_NAME, err));
         }
         var svg = new Rsvg(String(buffer));
         var transform = svg.render({
