@@ -1,4 +1,4 @@
-# [gulp](https://github.com/wearefractal/gulp)-rsvg [![Build Status](https://travis-ci.org/ben-eb/gulp-rsvg.png?branch=master)](https://travis-ci.org/ben-eb/gulp-rsvg) [![NPM version](https://badge.fury.io/js/gulp-rsvg.png)](http://badge.fury.io/js/gulp-rsvg) [![Dependency Status](https://gemnasium.com/ben-eb/gulp-rsvg.png)](https://gemnasium.com/ben-eb/gulp-rsvg)
+# [gulp](https://github.com/wearefractal/gulp)-rsvg [![Build Status](https://travis-ci.org/ben-eb/gulp-rsvg.svg?branch=master)](https://travis-ci.org/ben-eb/gulp-rsvg) [![NPM version](https://badge.fury.io/js/gulp-rsvg.png)](http://badge.fury.io/js/gulp-rsvg) [![Dependency Status](https://gemnasium.com/ben-eb/gulp-rsvg.png)](https://gemnasium.com/ben-eb/gulp-rsvg)
 
 > Convert SVG to PNG or PDF.
 
