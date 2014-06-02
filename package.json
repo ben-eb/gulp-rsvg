@@ -23,7 +23,7 @@
   "dependencies": {
     "gulp-util": "~2.2.0",
     "rsvg": "~0.2.3",
-    "bufferstreams": "0.0.1"
+    "bufferstreams": "0.0.2"
   },
   "devDependencies": {
     "chai": "~1.8.1",
