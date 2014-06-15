@@ -21,11 +21,13 @@
     "svg"
   ],
   "dependencies": {
-    "gulp-util": "~2.2.0",
-    "rsvg": "~0.2.3",
-    "bufferstreams": "0.0.2"
+    "gulp-util": "~2.2.0"
+  },
+  "peerDependencies": {
+    "rsvg": "*"
   },
   "devDependencies": {
+    "rsvg": "~0.2.3",
     "chai": "~1.8.1",
     "clear": "0.0.1",
     "gulp": "~3.2.3",

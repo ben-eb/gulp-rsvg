@@ -45,14 +45,12 @@ describe('gulp-rsvg', function() {
     it('should work the same in stream mode', function(cb) {
         var stream = convert();
         var fakeFile = new gutil.File({
-            contents: new Stream()
+            contents: new Stream.PassThrough()
         });
 
         stream.on('data', function(data) {
-            data.contents.pipe(es.wait(function(err, data) {
-                expect(data).to.not.equal(raw);
-                cb();
-            }));
+            expect(String(data.contents)).to.not.equal(raw);
+            cb();
         });
 
         stream.write(fakeFile);
