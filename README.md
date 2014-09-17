@@ -52,3 +52,9 @@ Type: `Integer`
 Default value: `undefined`
 
 Specify a new height for the resulting file. Defaults to the height of the SVG.
+
+### scale
+Type: `Integer`
+Default value: 1
+
+Scale the generated file by this factor. Useful for retina assets.
