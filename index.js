@@ -9,14 +9,15 @@ var Rsvg          = require('rsvg').Rsvg,
     PLUGIN_NAME   = 'gulp-rsvg';
 
 function gulprsvg(options) {
-    options = options || {}
+    options = options || {};
     options.format = options.format || 'png';
+    options.scale = options.scale || 1;
 
     function renderSvg(svg) {
         return new Buffer(svg.render({
             format: options.format,
-            width: options.width || svg.width,
-            height: options.height || svg.height
+            width: options.width || svg.width * options.scale,
+            height: options.height || svg.height * options.scale
         }).data);
     }
 
