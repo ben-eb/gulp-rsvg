@@ -58,3 +58,9 @@ Type: `Integer`
 Default value: 1
 
 Scale the generated file by this factor. Useful for retina assets.
+
+### Rsvg
+Type: `Function`
+Default value: `require('rsvg').Rsvg`
+
+Pass a svg rendering library. `Rsvg` by npm package `rsvg` used by default.

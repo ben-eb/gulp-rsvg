@@ -2,8 +2,7 @@
 
 'use strict';
 
-var Rsvg          = require('rsvg').Rsvg,
-    gutil         = require('gulp-util'),
+var gutil         = require('gulp-util'),
     transform     = require('stream').Transform,
 
     PLUGIN_NAME   = 'gulp-rsvg';
@@ -12,6 +11,8 @@ function gulprsvg(options) {
     options = options || {};
     options.format = options.format || 'png';
     options.scale = options.scale || 1;
+
+    var Rsvg = options.Rsvg || require('rsvg').Rsvg;
 
     function renderSvg(svg) {
         return new Buffer(svg.render({
