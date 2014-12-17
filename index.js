@@ -12,7 +12,7 @@ function gulprsvg(options) {
     options.format = options.format || 'png';
     options.scale = options.scale || 1;
 
-    var Rsvg = options.Rsvg || require('rsvg').Rsvg;
+    var Rsvg = options.Rsvg || require('librsvg').Rsvg;
 
     function renderSvg(svg) {
         return new Buffer(svg.render({
@@ -29,9 +29,10 @@ function gulprsvg(options) {
         if (file.isNull()) {
             return done(null, file);
         }
+        var svg;
 
         if (file.isStream()) {
-            var svg = new Rsvg();
+            svg = new Rsvg();
             file.contents.pipe(svg);
 
             svg.on('finish', function() {
@@ -39,7 +40,7 @@ function gulprsvg(options) {
                 done(null, file);
             });
         } else {
-            var svg = new Rsvg(file.contents);
+            svg = new Rsvg(file.contents);
             file.path = gutil.replaceExtension(file.path, '.' + options.format);
             file.contents = renderSvg(svg);
             done(null, file);

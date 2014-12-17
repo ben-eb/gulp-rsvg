@@ -2,7 +2,7 @@
 
 > Convert SVG to PNG or PDF.
 
-*If you have any difficulties with the output of this plugin, please use the [RSVG tracker](https://github.com/walling/node-rsvg/issues).*
+*If you have any difficulties with the output of this plugin, please use the [RSVG tracker](https://github.com/anru/node-rsvg/issues).*
 
 Install via [npm](https://npmjs.org/package/gulp-rsvg):
 
@@ -10,7 +10,7 @@ Install via [npm](https://npmjs.org/package/gulp-rsvg):
 npm install gulp-rsvg --save-dev
 ```
 
-Note that this plugin wraps [node-rsvg](https://github.com/walling/node-rsvg) and so requires LibRSVG to be available on the command line. Please see the README for *node-rsvg* for a guide on how to set that up for your platform.
+Note that this plugin wraps [node-rsvg](https://github.com/anru/node-rsvg) and so requires LibRSVG to be available on the command line. Please see the README for *node-rsvg* for a guide on how to set that up for your platform.
 
 ## Example
 
@@ -61,6 +61,6 @@ Scale the generated file by this factor. Useful for retina assets.
 
 ### Rsvg
 Type: `Function`
-Default value: `require('rsvg').Rsvg`
+Default value: `require('librsvg').Rsvg`
 
-Pass a svg rendering library. `Rsvg` by npm package `rsvg` used by default.
+Pass a svg rendering library. `Rsvg` by npm package `librsvg` used by default.
