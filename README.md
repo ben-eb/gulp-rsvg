@@ -1,8 +1,9 @@
-# [gulp](https://github.com/wearefractal/gulp)-rsvg [![Build Status](https://travis-ci.org/ben-eb/gulp-rsvg.svg?branch=master)](https://travis-ci.org/ben-eb/gulp-rsvg) [![NPM version](https://badge.fury.io/js/gulp-rsvg.png)](http://badge.fury.io/js/gulp-rsvg) [![Dependency Status](https://gemnasium.com/ben-eb/gulp-rsvg.png)](https://gemnasium.com/ben-eb/gulp-rsvg)
+# [gulp][gulp]-rsvg [![Build Status](https://travis-ci.org/ben-eb/gulp-rsvg.svg?branch=master)][ci] [![NPM version](https://badge.fury.io/js/gulp-rsvg.svg)][npm] [![Dependency Status](https://gemnasium.com/ben-eb/gulp-rsvg.svg)][deps]
 
 > Convert SVG to PNG or PDF.
 
-*If you have any difficulties with the output of this plugin, please use the [RSVG tracker](https://github.com/anru/node-rsvg/issues).*
+*If you have any difficulties with the output of this plugin, please use the
+[RSVG tracker](https://github.com/anru/node-rsvg/issues).*
 
 Install via [npm](https://npmjs.org/package/gulp-rsvg):
 
@@ -10,7 +11,9 @@ Install via [npm](https://npmjs.org/package/gulp-rsvg):
 npm install gulp-rsvg --save-dev
 ```
 
-Note that this plugin wraps [node-rsvg](https://github.com/anru/node-rsvg) and so requires LibRSVG to be available on the command line. Please see the README for *node-rsvg* for a guide on how to set that up for your platform.
+Note that this plugin wraps [node-rsvg](https://github.com/anru/node-rsvg) and
+so requires LibRSVG to be available on the command line. Please see the README
+for *node-rsvg* for a guide on how to set that up for your platform.
 
 ## Example
 
@@ -64,3 +67,17 @@ Type: `Function`
 Default value: `require('librsvg').Rsvg`
 
 Pass a svg rendering library. `Rsvg` by npm package `librsvg` used by default.
+
+## Contributing
+
+Pull requests are welcome. If you add functionality, then please add unit tests
+to cover it.
+
+## License
+
+MIT © Ben Briggs
+
+[ci]:   https://travis-ci.org/ben-eb/gulp-rsvg
+[deps]: https://gemnasium.com/ben-eb/gulp-rsvg
+[gulp]: https://github.com/wearefractal/gulp
+[npm]:  http://badge.fury.io/js/gulp-rsvg
