@@ -1,4 +1,3 @@
-/* jshint node: true */
 /* global describe, it  */
 
 'use strict';
@@ -6,10 +5,11 @@
 var convert = require('./index'),
     expect  = require('chai').expect,
     Stream  = require('stream'),
+    fs      = require('fs'),
     es      = require('event-stream'),
     gutil   = require('gulp-util');
 
-var raw = '<svg xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="#ff00"/></svg>';
+var raw = fs.readFileSync('./fixture.svg', 'utf-8');
 
 describe('gulp-rsvg', function() {
     it('should convert svg to png', function(cb) {

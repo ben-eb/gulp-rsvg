@@ -1,11 +1,7 @@
-/* jshint node: true */
-
 'use strict';
 
-var gutil         = require('gulp-util'),
-    transform     = require('stream').Transform,
-
-    PLUGIN_NAME   = 'gulp-rsvg';
+var gutil     = require('gulp-util'),
+    transform = require('stream').Transform;
 
 function gulprsvg(options) {
     options = options || {};

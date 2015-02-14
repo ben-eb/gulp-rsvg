@@ -9,6 +9,7 @@
     "latedef": true,
     "noarg": true,
     "noempty": true,
+    "node": true,
     "unused": true,
     "indent": 4
 }
