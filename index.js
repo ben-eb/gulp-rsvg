@@ -1,16 +1,19 @@
 'use strict';
 
 var gutil     = require('gulp-util'),
+    assign    = require('object-assign'),
     transform = require('stream').Transform;
 
-function gulprsvg(options) {
-    options = options || {};
-    options.format = options.format || 'png';
-    options.scale = options.scale || 1;
+module.exports = function gulprsvg (options) {
+    options = assign({
+        format: 'png',
+        scale: 1,
+        Rsvg: require('librsvg').Rsvg
+    }, options);
 
-    var Rsvg = options.Rsvg || require('librsvg').Rsvg;
+    var Rsvg = options.Rsvg;
 
-    function renderSvg(svg) {
+    function renderSvg (svg) {
         return new Buffer(svg.render({
             format: options.format,
             width: options.width || svg.width * options.scale,
@@ -18,12 +21,12 @@ function gulprsvg(options) {
         }).data);
     }
 
-    var stream = new transform({ objectMode: true });
+    var stream = new transform({objectMode: true});
 
-    stream._transform = function(file, unused, done) {
+    stream._transform = function (file, encoding, cb) {
         // Pass through if null
         if (file.isNull()) {
-            return done(null, file);
+            return cb(null, file);
         }
         var svg;
 
@@ -31,19 +34,17 @@ function gulprsvg(options) {
             svg = new Rsvg();
             file.contents.pipe(svg);
 
-            svg.on('finish', function() {
+            svg.on('finish', function () {
                 file.contents = renderSvg(svg);
-                done(null, file);
+                cb(null, file);
             });
         } else {
             svg = new Rsvg(file.contents);
             file.path = gutil.replaceExtension(file.path, '.' + options.format);
             file.contents = renderSvg(svg);
-            done(null, file);
+            cb(null, file);
         }
     };
 
     return stream;
-}
-
-module.exports = gulprsvg;
+};

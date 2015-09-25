@@ -1,79 +1,73 @@
-/* global describe, it  */
-
 'use strict';
 
 var convert = require('./index'),
-    expect  = require('chai').expect,
+    test    = require('tape'),
     Stream  = require('stream'),
     fs      = require('fs'),
-    es      = require('event-stream'),
     gutil   = require('gulp-util');
 
 var raw = fs.readFileSync('./fixture.svg', 'utf-8');
 
-describe('gulp-rsvg', function() {
-    it('should convert svg to png', function(cb) {
-        var stream = convert();
-
-        stream.on('data', function(file) {
-            expect(String(file.contents)).to.not.equal(raw);
-            expect(file.path).to.contain.string('png');
-            cb();
-        });
-
-        stream.write(new gutil.File({
-            contents: new Buffer(raw),
-            path: 'test.svg'
-        }));
+function fixture (contents) {
+    return new gutil.File({
+        contents: contents,
+        cwd: __dirname,
+        base: __dirname,
+        path: __dirname + '/fixture.svg'
     });
-    it('should convert svg to pdf', function(cb) {
-        var stream = convert({
-            format: 'pdf'
-        });
+}
 
-        stream.on('data', function(file) {
-            expect(String(file.contents)).to.not.equal(raw);
-            expect(file.path).to.contain.string('pdf');
-            cb();
-        });
+test('should convert svg to png', function (t) {
+    t.plan(2);
 
-        stream.write(new gutil.File({
-            contents: new Buffer(raw),
-            path: 'test.svg'
-        }));
+    var stream = convert();
+
+    stream.on('data', function (file) {
+        t.notEqual(String(file.contents), raw);
+        t.ok(~file.path.indexOf('png'), 'should be a png');
     });
-    it('should work the same in stream mode', function(cb) {
-        var stream = convert();
-        var fakeFile = new gutil.File({
-            contents: new Stream.PassThrough()
-        });
 
-        stream.on('data', function(data) {
-            expect(String(data.contents)).to.not.equal(raw);
-            cb();
-        });
+    stream.write(fixture(new Buffer(raw)));
+});
 
-        stream.write(fakeFile);
-        fakeFile.contents.write(raw);
-        fakeFile.contents.end();
+test('should convert svg to pdf', function (t) {
+    t.plan(2);
+
+    var stream = convert({format: 'pdf'});
+
+    stream.on('data', function (file) {
+        t.notEqual(String(file.contents), raw);
+        t.ok(~file.path.indexOf('pdf'), 'should be a pdf');
     });
-    it('should let null files pass through', function(cb) {
-        var stream = convert(),
-            n = 0;
 
-        stream.pipe(es.through(function(file) {
-            expect(file.path).to.equal('null.md');
-            expect(file.contents).to.equal(null);
-            n++;
-        }, function() {
-            expect(n).to.equal(1);
-            cb();
-        }));
+    stream.write(fixture(new Buffer(raw)));
+});
 
-        stream.write(new gutil.File({
-            path: 'null.md',
-            contents: null
-        }));
-        stream.end();
-  });
+test('should work the same with streams', function (t) {
+    t.plan(1);
+
+    var stream = convert();
+    var fakeFile = fixture(new Stream.PassThrough());
+
+    stream.on('data', function (data) {
+        t.notEqual(String(data.contents), raw);
+    });
+
+    stream.write(fakeFile);
+    fakeFile.contents.write(raw);
+    fakeFile.contents.end();
+});
+
+test('should let null files pass through', function (t) {
+    t.plan(1);
+
+    var stream = convert();
+
+    stream.on('data', function (data) {
+        t.equal(data.contents, null, 'should not transform null in any way');
+    });
+
+    var file = fixture(null);
+
+    stream.write(file);
 });

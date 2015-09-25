@@ -5,7 +5,9 @@
 *If you have any difficulties with the output of this plugin, please use the
 [RSVG tracker](https://github.com/anru/node-rsvg/issues).*
 
-Install via [npm](https://npmjs.org/package/gulp-rsvg):
+## Install
+
+With [npm](https://npmjs.org/package/gulp-rsvg) do:
 
 ```
 npm install gulp-rsvg --save-dev
@@ -21,13 +23,13 @@ for *node-rsvg* for a guide on how to set that up for your platform.
 var gulp = require('gulp');
 var convert = require('gulp-rsvg');
 
-gulp.task('png', function() {
+gulp.task('png', function () {
     return gulp.src('logo.svg')
         .pipe(convert())
         .pipe(gulp.dest('./out'));
 });
 
-gulp.task('pdf', function() {
+gulp.task('pdf', function () {
     return gulp.src('logo.svg')
         .pipe(convert({
             format: 'pdf'
@@ -75,7 +77,7 @@ to cover it.
 
 ## License
 
-MIT © Ben Briggs
+MIT © [Ben Briggs](http://beneb.info)
 
 [ci]:   https://travis-ci.org/ben-eb/gulp-rsvg
 [deps]: https://gemnasium.com/ben-eb/gulp-rsvg

@@ -6,31 +6,29 @@
   "homepage": "https://github.com/ben-eb/gulp-rsvg",
   "author": {
     "name": "Ben Briggs",
-    "email": "therealbenbriggs@hotmail.com",
+    "email": "beneb.info@gmail.com",
     "url": "http://beneb.info"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "tape test.js | tap-spec"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/ben-eb/gulp-rsvg.git"
-  },
+  "repository": "ben-eb/gulp-rsvg",
   "keywords": [
     "gulpplugin",
     "svg"
   ],
+  "files": [
+    "index.js",
+    "LICENSE-MIT"
+  ],
   "dependencies": {
     "gulp-util": "~3.0.3",
-    "librsvg": "~0.5.0"
+    "librsvg": "~0.5.0",
+    "object-assign": "^4.0.1"
   },
   "devDependencies": {
-    "chai": "~2.0.0",
-    "event-stream": "~3.2.2",
-    "gulp": "^3.8.11",
-    "gulp-jshint": "~1.9.2",
-    "jshint-stylish": "~1.0.0",
-    "mocha": "~2.1.0"
+    "tap-spec": "^4.1.0",
+    "tape": "^4.2.0"
   },
   "main": "index.js"
 }
