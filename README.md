@@ -3,7 +3,7 @@
 > Convert SVG to PNG or PDF.
 
 *If you have any difficulties with the output of this plugin, please use the
-[RSVG tracker](https://github.com/anru/node-rsvg/issues).*
+[RSVG tracker](https://github.com/2gis/node-rsvg/issues).*
 
 ## Install
 
@@ -13,7 +13,7 @@ With [npm](https://npmjs.org/package/gulp-rsvg) do:
 npm install gulp-rsvg --save-dev
 ```
 
-Note that this plugin wraps [node-rsvg](https://github.com/anru/node-rsvg) and
+Note that this plugin wraps [node-rsvg](https://github.com/2gis/node-rsvg) and
 so requires LibRSVG to be available on the command line. Please see the README
 for *node-rsvg* for a guide on how to set that up for your platform.
 
